@@ -1,0 +1,153 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired":
+  {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets":
+  [
+    {
+      "name": "Win_x64",
+      "displayName": "Visual Studio x64",
+      "description": "Default build using VS x64",
+      "generator": "Visual Studio 17 2022",
+      "architecture":{ "value": "x64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Win_x64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL2/Win_x64",
+        "SDL_SHARED":"1",
+        "SDL_STATIC":"0",
+        "SDL2_DISABLE_INSTALL":"0",
+        "SDL_FORCE_STATIC_VCRT":"0",
+        "SDL_PIPEWIRE":"1",
+        "SDL_SNDIO":"1",
+        "SDL_X11":"0",
+        "SDL_WAYLAND":"0",
+        "SDL_METAL":"0",
+        "SDL_TEST":"0"
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Win_arm64",
+      "displayName": "Visual Studio arm64",
+      "description": "Default build using VS arm64",
+      "generator": "Visual Studio 17 2022",
+      "architecture":{ "value": "arm64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Win_arm64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL2/Win_arm64",
+        "SDL_SHARED":"0",
+        "SDL_STATIC":"1",
+        "SDL_FORCE_STATIC_VCRT":"1",
+        "SDL_PIPEWIRE":"1",
+        "SDL_SNDIO":"1",
+        "SDL_X11":"1",
+        "SDL_WAYLAND":"1",
+        "SDL_METAL":"1",
+        "SDL_TEST":"0"
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+
+    
+    {
+      "name": "Unix_x64",
+      "displayName": "Unix Makefiles x64",
+      "description": "Default build using Unix Makefiles x64",
+      "generator": "Unix Makefiles",
+      "architecture":{ "value": "x64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Unix_x64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL2/Unix_x64",
+        "SDL_SHARED":"1",
+        "SDL_STATIC":"0",
+        "SDL2_DISABLE_INSTALL":"0",
+        "SDL_PIPEWIRE":"1",
+        "SDL_SNDIO":"1",
+        "SDL_X11":"1",
+        "SDL_WAYLAND":"1",
+        "SDL_METAL":"0",
+        "SDL_TEST":"0"
+      },
+      "condition":
+      {
+        "type": "notEquals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Unix_arm64",
+      "displayName": "Unix Makefiles arm64",
+      "description": "Default build using Unix Makefiles arm64",
+      "generator": "Unix Makefiles",
+      "architecture":{ "value": "arm64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Unix_arm64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL2/Unix_arm64",
+        "SDL_SHARED":"1",
+        "SDL_STATIC":"0",
+        "SDL_PIPEWIRE":"1",
+        "SDL_SNDIO":"1",
+        "SDL_X11":"1",
+        "SDL_WAYLAND":"1",
+        "SDL_METAL":"0",
+        "SDL_TEST":"0"
+      },
+      "condition":
+      {
+        "type": "notEquals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+
+    {
+      "name": "XCode",
+      "displayName": "XCode",
+      "description": "Default build using XCode",
+      "generator": "XCode",
+      "binaryDir": "${sourceDir}/build/XCode",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL2/XCode",
+        "SDL_SHARED":"1",
+        "SDL_STATIC":"0",
+        "SDL_PIPEWIRE":"1",
+        "SDL_SNDIO":"1",
+        "SDL_X11":"0",
+        "SDL_WAYLAND":"0",
+        "SDL_METAL":"1",
+        "SDL_TEST":"0"
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      }
+    }
+  ]
+}

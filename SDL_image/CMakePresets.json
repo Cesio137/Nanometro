@@ -1,0 +1,148 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired":
+  {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets":
+  [
+    {
+      "name": "Win_x64",
+      "displayName": "Visual Studio x64",
+      "description": "Default build using VS x64",
+      "generator": "Visual Studio 17 2022",
+      "architecture":{ "value": "x64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Win_x64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL_image/Win_x64",
+        "SDLIMAGE_INSTALL_CMAKEDIR":"${sourceDir}/../Packages/SDL_image/Win_x64",
+        "SDL2IMAGE_INSTALL":"1",
+        "BUILD_SHARED_LIBS":"0",
+        "SDL2IMAGE_SAMPLES":"0",
+        "SDL2_DIR":"${sourceDir}/../Packages/SDL2/Win_x64",
+        "SDL2_INCLUDE_DIR":"${sourceDir}/../Packages/SDL2/Win_x64/include/SDL2",
+        "SDL2_LIBRARY":"${sourceDir}/../Packages/SDL2/Win_x64/lib",
+        "SDL2_MAIN_LIBRARY": "${sourceDir}/../Packages/SDL2/Win_x64/lib"
+        
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Win_arm64",
+      "displayName": "Visual Studio arm64",
+      "description": "Default build using VS arm64",
+      "generator": "Visual Studio 17 2022",
+      "architecture":{ "value": "arm64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Win_arm64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL_image/Win_arm64",
+        "SDLIMAGE_INSTALL_CMAKEDIR":"${sourceDir}/../Packages/SDL_image/Win_arm64",
+        "SDL2IMAGE_INSTALL":"1",
+        "BUILD_SHARED_LIBS":"0",
+        "SDL2IMAGE_SAMPLES":"0",
+        "SDL2_DIR":"${sourceDir}/../Packages/SDL2/Win_arm64",
+        "SDL2_INCLUDE_DIR":"${sourceDir}/../Packages/SDL2/Win_arm64/include/SDL2",
+        "SDL2_LIBRARY":"${sourceDir}/../Packages/SDL2/Win_arm64/lib",
+        "SDL2_MAIN_LIBRARY": "${sourceDir}/../Packages/SDL2/Win_arm64/lib"
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+
+    
+    {
+      "name": "Unix_x64",
+      "displayName": "Unix Makefiles x64",
+      "description": "Default build using Unix Makefiles x64",
+      "generator": "Unix Makefiles",
+      "architecture":{ "value": "x64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Unix_x64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL_image/Unix_x64",
+        "SDLIMAGE_INSTALL_CMAKEDIR":"${sourceDir}/../Packages/SDL_image/Unix_x64",
+        "SDL2IMAGE_INSTALL":"1",
+        "BUILD_SHARED_LIBS":"0",
+        "SDL2IMAGE_SAMPLES":"0",
+        "SDL2_DIR":"${sourceDir}/../Packages/SDL2/Unix_x64",
+        "SDL2_INCLUDE_DIR":"${sourceDir}/../Packages/SDL2/Unix_x64/include/SDL2",
+        "SDL2_LIBRARY":"${sourceDir}/../Packages/SDL2/Unix_x64/lib",
+        "SDL2_MAIN_LIBRARY": "${sourceDir}/../Packages/SDL2/Unix_x64/lib"
+      },
+      "condition":
+      {
+        "type": "notEquals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Unix_arm64",
+      "displayName": "Unix Makefiles arm64",
+      "description": "Default build using Unix Makefiles arm64",
+      "generator": "Unix Makefiles",
+      "architecture":{ "value": "arm64", "strategy": "external" },
+      "binaryDir": "${sourceDir}/build/Unix_arm64",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL_image/Unix_arm64",
+        "SDLIMAGE_INSTALL_CMAKEDIR":"${sourceDir}/../Packages/SDL_image/Unix_arm64",
+        "SDL2IMAGE_INSTALL":"1",
+        "BUILD_SHARED_LIBS":"0",
+        "SDL2IMAGE_SAMPLES":"0",
+        "SDL2_DIR":"${sourceDir}/../Packages/SDL2/Unix_arm64",
+        "SDL2_INCLUDE_DIR":"${sourceDir}/../Packages/SDL2/Unix_arm64/include/SDL2",
+        "SDL2_LIBRARY":"${sourceDir}/../Packages/SDL2/Unix_arm64/lib"
+      },
+      "condition":
+      {
+        "type": "notEquals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+
+    {
+      "name": "XCode",
+      "displayName": "XCode",
+      "description": "Default build using XCode",
+      "generator": "XCode",
+      "binaryDir": "${sourceDir}/build/XCode",
+      "cacheVariables":
+      {
+        "CMAKE_BUILD_TYPE":"Release",
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/SDL_image/XCode",
+        "SDLIMAGE_INSTALL_CMAKEDIR":"${sourceDir}/../Packages/SDL_image/XCode",
+        "SDL2IMAGE_INSTALL":"1",
+        "BUILD_SHARED_LIBS":"0",
+        "SDL2IMAGE_SAMPLES":"0",
+        "SDL2_DIR":"${sourceDir}/../Packages/SDL2/Mac",
+        "SDL2_INCLUDE_DIR":"${sourceDir}/../Packages/SDL2/Mac/include/SDL2",
+        "SDL2_LIBRARY":"${sourceDir}/../Packages/SDL2/Mac/lib"
+      },
+      "condition":
+      {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      }
+    }
+  ]
+}

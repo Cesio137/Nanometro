@@ -1,7 +1,18 @@
-cmake_minimum_required(VERSION 3.24)
-project(Nanometro)
+cmake_minimum_required(VERSION 3.28)
 
-set(CMAKE_CXX_STANDARD 23)
+option(TARGET_SYSTEM "Target System" "")
 
-add_executable(Nanometro main.cpp)
-include(config.cmake)
+# BUILD SDL2
+execute_process(COMMAND cmake --preset ${TARGET_SYSTEM} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL2)
+execute_process(COMMAND cmake --build build/${TARGET_SYSTEM} --target install --config "Release"  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL2)
+execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory build WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL2)
+
+# BUILD ZLIB
+execute_process(COMMAND cmake --preset ${TARGET_SYSTEM} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/zlib)
+execute_process(COMMAND cmake --build build/${TARGET_SYSTEM} --target install --config "Release"  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/zlib)
+execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory build WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL2)
+
+# BUILD SDL Image
+execute_process(COMMAND cmake --preset ${TARGET_SYSTEM} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL_image)
+execute_process(COMMAND cmake --build build/${TARGET_SYSTEM} --target install --config "Release"  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL_image)
+execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory build WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/SDL2)
