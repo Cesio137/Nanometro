@@ -18,7 +18,10 @@
       "cacheVariables":
       {
         "CMAKE_BUILD_TYPE":"Release",
-        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/zlib/Win_x64"
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/JoltPhysics/Win_x64",
+        "USE_AVX512":"1",
+        "OBJECT_LAYER_BITS":"0",
+        "DOUBLE_PRECISION":"1"
       },
       "condition":
       {
@@ -37,7 +40,10 @@
       "cacheVariables":
       {
         "CMAKE_BUILD_TYPE":"Release",
-        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/zlib/Win_arm64"
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/JoltPhysics/Win_arm64",
+        "USE_AVX512":"1",
+        "OBJECT_LAYER_BITS":"0",
+        "DOUBLE_PRECISION":"1"
       },
       "condition":
       {
@@ -58,7 +64,10 @@
       "cacheVariables":
       {
         "CMAKE_BUILD_TYPE":"Release",
-        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/zlib/Unix_x64"
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/JoltPhysics/Unix_x64",
+        "USE_AVX512":"1",
+        "OBJECT_LAYER_BITS":"0",
+        "DOUBLE_PRECISION":"1"
       },
       "condition":
       {
@@ -77,7 +86,10 @@
       "cacheVariables":
       {
         "CMAKE_BUILD_TYPE":"Release",
-        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/zlib/Unix_arm64"
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/JoltPhysics/Unix_arm64",
+        "USE_AVX512":"1",
+        "OBJECT_LAYER_BITS":"0",
+        "DOUBLE_PRECISION":"1"
       },
       "condition":
       {
@@ -96,7 +108,10 @@
       "cacheVariables":
       {
         "CMAKE_BUILD_TYPE":"Release",
-        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/zlib/XCode"
+        "CMAKE_INSTALL_PREFIX":"${sourceDir}/../Packages/JoltPhysics/XCode",
+        "USE_AVX512":"1",
+        "OBJECT_LAYER_BITS":"0",
+        "DOUBLE_PRECISION":"1"
       },
       "condition":
       {
