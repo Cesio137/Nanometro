@@ -10,7 +10,16 @@ namespace runa::handler {
     void input_c::update_event(SDL_Event &event) {
         if (event.type == SDL_EVENT_KEY_UP || event.type == SDL_EVENT_KEY_DOWN) {
             scancodes[event.key.scancode] = event.key;
+        } else if (event.type == SDL_EVENT_MOUSE_BUTTON_UP || event.type == SDL_EVENT_MOUSE_BUTTON_DOWN) {
+            mouseflags[event.button.button] = event.button;
         }
+    }
+
+    bool input_c::is_mouse_button_pressed(int mouseflag) {
+        if (mouseflags.contains(mouseflag)) {
+            return mouseflags[mouseflag].down;
+        }
+        return false;
     }
 
     bool input_c::is_key_pressed(SDL_Scancode scancode) {
