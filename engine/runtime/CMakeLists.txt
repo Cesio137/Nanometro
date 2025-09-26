@@ -29,6 +29,6 @@ target_link_libraries(runtime
         $<IF:$<TARGET_EXISTS:SDL3_image::SDL3_image-shared>,SDL3_image::SDL3_image-shared,SDL3_image::SDL3_image-static>
         stb
         #COMPRESSION
-        ZLIB
+        ZLIB::ZLIB
 )
 set_target_properties(runtime PROPERTIES FOLDER "/engine/runtime" LINKER_LANGUAGE CXX)

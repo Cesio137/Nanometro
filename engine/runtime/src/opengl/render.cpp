@@ -80,7 +80,7 @@ namespace runa::opengl {
         backend.glsl_version.clear();
     }
 
-    void runa::opengl::init_imgui(backend_t& backend) {
+    void init_imgui(backend_t& backend) {
         if (!backend.window_ptr || !backend.context)
             return;
 
@@ -92,7 +92,7 @@ namespace runa::opengl {
         ImGui_ImplOpenGL3_Init(backend.glsl_version.c_str());
     }
 
-    void runa::opengl::destroy_imgui() {
+    void destroy_imgui() {
         ImGui_ImplSDL3_Shutdown();
         ImGui_ImplOpenGL3_Shutdown();
         ImGui::DestroyContext();
@@ -120,8 +120,10 @@ namespace runa::opengl {
 
     void render_c::poll() {
         uint64_t start = SDL_GetTicksNS();
+        uint64_t elapsed = 0;
         uint64_t frame_time = 0;
-        bool should_limit = user_settings.get_framerate_limit() > 0 && user_settings.get_vsync() == vsync_e::disable;
+        double delta = 0;
+        bool should_limit = user_settings.get_framerate_limit() > 0 && user_settings.get_vsync() == disable;
         if (should_limit) {
             frame_time = 1000000000 / user_settings.get_framerate_limit();
         }
@@ -150,8 +152,8 @@ namespace runa::opengl {
         // Render behind imgui
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        uint64_t elapsed = SDL_GetTicksNS() - start;
-        double delta = (float)((double)(elapsed) / 1000000000.0);
+        elapsed = SDL_GetTicksNS() - start;
+        delta = (float)((double)(elapsed) / 1000000000.0);
         if (render_cb) render_cb(delta);
 
         if (using_imgui) {

@@ -3,7 +3,7 @@ set(THIRDPARTY_DIR ${CMAKE_CURRENT_LIST_DIR})
 #VCPKG
 find_package(SDL3 CONFIG REQUIRED)
 find_package(SDL3_image CONFIG REQUIRED)
-find_package(ZLIB CONFIG)
+find_package(ZLIB REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 # Dependencies
